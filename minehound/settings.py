@@ -70,8 +70,8 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
-    'minehound.member',
-    'minehound.server',
+    'member',
+    'server',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
