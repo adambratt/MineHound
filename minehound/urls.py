@@ -5,7 +5,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     
-    url(r'^$', 'server.views.home'),
+    url(r'^$', 'minehound.server.views.home'),
     url(r'^logout/$', 'django.contrib.auth.views.logout'),
     url(r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'login.html'}),   
    
