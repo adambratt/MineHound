@@ -70,6 +70,8 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
+    'member',
+    'server',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
