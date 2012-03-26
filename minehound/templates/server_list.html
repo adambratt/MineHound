@@ -21,7 +21,7 @@
 			<td>{{forloop.counter}}</td>
 			<td><a href="/server/view/{{v.id}}">{{v.name}}</a></td>
 			<td>{{v.online_count}}/0</td>
-			<td>100</td>
+			<td>{{v.today_sessions}}</td>
 			<td>{% if v.status %}Online{% else %}Offline{% endif %}</td>
 		</tr>
 		{% endfor %}

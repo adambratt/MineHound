@@ -12,7 +12,7 @@ def create(request):
     
 def view(request, server_id):
     try:
-        s = server.objects.get(pk=server_id)
+        s = server.objects.get(pk=server_id).order_by('-today_sessions')
     except DoesNotExist:
         return 
     return render(request, 'server_view.html', {'server': s})
