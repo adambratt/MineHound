@@ -29,8 +29,7 @@ class server(models.Model):
         return players
     
     def online_count(self):
-        p = self.get_online_players()
-        return p.count()
+        return session.objects.filter(end__isnull=True, server=self).count()
     
     property(online_count)
     online_players = property(get_online_players)
