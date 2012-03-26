@@ -22,3 +22,4 @@ class session(models.Model):
     length = models.IntegerField(default=0)
     start = models.DateTimeField(auto_now_add=True)
     end = models.DateTimeField(auto_now=True)
+    last_update = models.DateTimeField()
