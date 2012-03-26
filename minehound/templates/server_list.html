@@ -19,7 +19,7 @@
 		<tr>
 			<td>{{forloop.counter}}</td>
 			<td><a href="/server/view/{{v.id}}">{{v.name}}</a></td>
-			<td>0/0</td>
+			<td>{{v.online_players.count}}/0</td>
 			<td>100</td>
 		</tr>
 		{% endfor %}
