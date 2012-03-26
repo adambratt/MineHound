@@ -16,7 +16,7 @@ class server(models.Model):
     status = models.IntegerField(max_length=1, default=0)
     
     def get_online_players(self):
-        active_sessions = session.objects.filter(last_update=self.last_checked)
+        active_sessions = session.objects.filter(end="", server=self)
         players = [ ]
         for p in active_sessions:
             players.append(p.user)
