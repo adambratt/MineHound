@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 
 def home(request):
     s = server.objects.all()[:30]
-    s = sorted(s, key=lambda a: a.today_sessions)
+    sorted(s, key=lambda a: a.today_sessions)
     return render(request, 'server_list.html', {'servers': s})
 
 @login_required

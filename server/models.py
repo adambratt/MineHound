@@ -24,7 +24,15 @@ class server(models.Model):
     
     property(total_sessions)
     property(today_sessions)
+    
+    def total_players(self):
+        return session.objects.filter(server=self).distinct('user').count()
+    
+    def today_players(self):
+        return session.objects.filter(server=self, last_update__gte=datetime.date.today()).distinct('user').count()
         
+    property(today_players)
+    property(total_players)
     
     def get_online_players(self):
         active_sessions = session.objects.filter(end__isnull=True, server=self)
