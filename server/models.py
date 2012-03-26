@@ -15,6 +15,7 @@ class server(models.Model):
     query_port = models.IntegerField(default=25566)
     last_checked = models.DateTimeField()
     status = models.IntegerField(max_length=1, default=0)
+    slots = models.IntegerField(default=0)
     
     def total_sessions(self):
         return session.objects.filter(server=self).count()
