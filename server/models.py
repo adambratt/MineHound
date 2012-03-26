@@ -17,8 +17,12 @@ class server(models.Model):
     
     def total_sessions(self):
         return session.objects.filter(server=self).count()
+        
+    def today_sessions(self):
+        return session.objects.filter(last_update__gte=datetime.date.today()).count()
     
     property(total_sessions)
+    property(today_sessions)
         
     
     def get_online_players(self):
