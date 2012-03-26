@@ -5,8 +5,9 @@
 <h4>{{server.address}}</h4>
 
 Currently online:
+<p>
 {% for p in server.online_players %}
-{{p.username}}
+<img src="http://minotar.net/avatar/{{p.username}}/16"> {{p.username}}<br />
 {% endfor %}
-
+</p>
 {% endblock %}
