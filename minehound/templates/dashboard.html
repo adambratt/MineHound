@@ -27,6 +27,12 @@
 			<td>{% if v.status %}Online{% else %}Offline{% endif %}</td>
 			<td><a href="/server/edit/{{v.id}}" class="btn">edit</a></td>
 		</tr>
+		{% empty %}
+		<tr>
+			<td colspan="6">
+				You have not created a server. <a href='/server/create/' class="btn">Add Server</a>
+			</td>
+		</tr>
 		{% endfor %}
 	</tbody>
 </table>
