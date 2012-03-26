@@ -55,7 +55,7 @@
 			{% if user.is_authenticated %}              
             <ul class="nav pull-right">
             	<li class="dropdown">
-            		<a href='#' class='dropdown-toggle' data-toggle="dropdown"><img src="{{user.get_profile.pic.file}}/25/25/" > {{user.get_profile.name}} <b class='caret'></b></a>
+            		<a href='#' class='dropdown-toggle' data-toggle="dropdown">{{user.username}} <b class='caret'></b></a>
             		<ul class="dropdown-menu">
             			<li><a href="/dashboard/">My Dashboard</a></li>
 						<li><a href="/accounts/logout/">Logout</a></li>
