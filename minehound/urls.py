@@ -9,6 +9,9 @@ urlpatterns = patterns('',
     url(r'^server/create/$', 'server.views.create'),
     url(r'^server/view/(?P<server_id>\w+)/$', 'server.views.view'),
     
+    url(r'^image/(?P<image_id>\w+)/$', 'images.views.load'),
+    url(r'^image/(?P<image_id>\w+)/(?P<width>\w+)/(?P<height>\w+)/$', 'images.views.load'),
+    
     url(r'^dashboard/$', 'member.views.dashboard'),
     
     url(r'^accounts/', include('registration.backends.default.urls')),
