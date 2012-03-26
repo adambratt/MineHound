@@ -26,10 +26,10 @@ class server(models.Model):
     property(today_sessions)
     
     def total_players(self):
-        return session.objects.filter(server=self).distinct('user').count()
+        return session.objects.filter(server=self).values('user').distinct().count()
     
     def today_players(self):
-        return session.objects.filter(server=self, last_update__gte=datetime.date.today()).distinct('user').count()
+        return session.objects.filter(server=self, last_update__gte=datetime.date.today()).values('user').distinct().count()
         
     property(today_players)
     property(total_players)
