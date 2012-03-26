@@ -4,5 +4,5 @@ from django.contrib.auth.decorators import login_required
 
 
 def dashboard(request):
-    servers = server.objects.filter(user=request.user)
+    servers = server.objects.filter(owner=request.user)
     return render(request, 'dashboard.html', {'servers': servers})
