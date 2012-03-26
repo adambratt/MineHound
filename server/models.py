@@ -16,7 +16,7 @@ class server(models.Model):
     status = models.IntegerField(max_length=1, default=0)
     
     def get_online_players(self):
-        active_sessions = session.objects.filter(end="", server=self)
+        active_sessions = session.objects.filter(end__isnull=True, server=self)
         players = [ ]
         for p in active_sessions:
             players.append(p.user)
@@ -31,5 +31,5 @@ class session(models.Model):
     server = models.ForeignKey('server.server')
     length = models.IntegerField(default=0)
     start = models.DateTimeField(auto_now_add=True)
-    end = models.DateTimeField(auto_now=True)
+    end = models.DateTimeField(auto_now=True, null=True)
     last_update = models.DateTimeField()
