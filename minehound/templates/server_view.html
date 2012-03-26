@@ -4,10 +4,16 @@
 <h2> {{server.name}}</h2>
 <h4>{{server.address}}</h4>
 
-Currently online:
 <p>
-{% for p in server.online_players %}
-<img src="http://minotar.net/avatar/{{p.username}}/16"> {{p.username}}<br />
-{% endfor %}
+    <strong>Alltime Logins</strong: {{server.total_sessions}}
+</p>
+
+<p>
+    Currently online:
+    <p>
+    {% for p in server.online_players %}
+    <img src="http://minotar.net/avatar/{{p.username}}/16"> {{p.username}}<br />
+    {% endfor %}
+    </p>
 </p>
 {% endblock %}

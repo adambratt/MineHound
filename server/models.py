@@ -15,6 +15,12 @@ class server(models.Model):
     last_checked = models.DateTimeField()
     status = models.IntegerField(max_length=1, default=0)
     
+    def total_sessions(self):
+        return session.objects.filter(server=self).count()
+    
+    property(total_sessions)
+        
+    
     def get_online_players(self):
         active_sessions = session.objects.filter(end__isnull=True, server=self)
         players = [ ]
