@@ -20,7 +20,7 @@ class server(models.Model):
         return session.objects.filter(server=self).count()
         
     def today_sessions(self):
-        return session.objects.filter(last_update__gte=datetime.date.today()).count()
+        return session.objects.filter(server=self, last_update__gte=datetime.date.today()).count()
     
     property(total_sessions)
     property(today_sessions)
