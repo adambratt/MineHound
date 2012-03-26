@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Server Listing</h2>
+
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>Rank</th>
+			<th>Server</th>
+			<th>Players</th>
+			<th>Score</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for k, v in servers %}
+		<tr>
+			<td>{{k+1}}</td>
+			<td>{{v.name}}</td>
+			<td>0/0</td>
+			<td>100</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+{% endblock %}
