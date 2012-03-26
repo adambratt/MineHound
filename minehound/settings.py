@@ -92,6 +92,10 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
 )
 
+AUTH_PROFILE_MODULE  = 'member.Member'
+
+LOGIN_REDIRECT_URL = '/dashboard/'
+
 ACCOUNT_ACTIVATION_DAYS = 7
 
 # A sample logging configuration. The only tangible logging

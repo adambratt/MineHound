@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Dashboard</h2>
+
+<h3>My Servers</h3>
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>Rank</th>
+			<th>Server</th>
+			<th>Players</th>
+			<th>Score</th>
+			<th>Status</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for v in servers %}
+		<tr>
+			<td>{{forloop.counter}}</td>
+			<td><a href="/server/view/{{v.id}}">{{v.name}}</a></td>
+			<td>{{v.online_count}}/{{v.slots}}</td>
+			<td>{{v.today_sessions}}</td>
+			<td>{% if v.status %}Online{% else %}Offline{% endif %}</td>
+			<td><a href="/server/edit/{{v.id}}" class="btn">edit</a></td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+{% endblock %}

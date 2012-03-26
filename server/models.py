@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 import datetime
 
 
@@ -16,6 +17,7 @@ class server(models.Model):
     last_checked = models.DateTimeField()
     status = models.IntegerField(max_length=1, default=0)
     slots = models.IntegerField(default=0)
+    owner = models.ForeignKey(User)
     
     def total_sessions(self):
         return session.objects.filter(server=self).count()
