@@ -1,4 +1,5 @@
 import os
+from registration_defaults.settings import *
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -67,6 +68,7 @@ WSGI_APPLICATION = 'minehound.wsgi.application'
 
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_PATH, 'templates/'),
+    REGISTRATION_TEMPLATE_DIR,
 )
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
