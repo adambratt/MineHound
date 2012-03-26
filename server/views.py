@@ -3,7 +3,8 @@ from server.models import server
 from django.contrib.auth.decorators import login_required
 
 def home(request):
-    s = server.objects.all().order_by('-today_sessions')[:30]
+    s = server.objects.all()[:30]
+    sorted(s, key=lambda a: a.today_sessions)
     return render(request, 'server_list.html', {'servers': s})
 
 @login_required
