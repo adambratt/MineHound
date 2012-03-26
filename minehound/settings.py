@@ -68,7 +68,6 @@ WSGI_APPLICATION = 'minehound.wsgi.application'
 
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_PATH, 'templates/'),
-    REGISTRATION_TEMPLATE_DIR,
 )
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -79,6 +78,7 @@ EMAIL_PORT = 587
 INSTALLED_APPS = (
     'member',
     'server',
+    'registration_defaults',
     'registration',
     'django.contrib.auth',
     'django.contrib.contenttypes',
