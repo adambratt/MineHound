@@ -22,6 +22,11 @@ class server(models.Model):
             players.append(p.user)
         return players
     
+    def online_count(self):
+        p = self.get_online_players()
+        return p.count()
+    
+    property(online_count)
     online_players = property(get_online_players)
     
 
