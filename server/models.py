@@ -13,6 +13,16 @@ class server(models.Model):
     server_port = models.IntegerField(default=25565)
     query_port = models.IntegerField(default=25566)
     last_checked = models.DateTimeField()
+    status = models.IntegerField(max_length=1, default=0)
+    
+    def get_online_players(self):
+        active_sessions = session.objects.filter(last_update=self.last_checked)
+        players = [ ]
+        for p in active_sessions:
+            players.append(p.user)
+        return players
+    
+    online_players = property(get_online_players)
     
 
 class session(models.Model):

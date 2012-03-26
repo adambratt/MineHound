@@ -49,7 +49,7 @@
             <ul class="nav">
               <li><a href="/">Browse Servers</a></li>
               <li class="divider-vertical"></li>
-              <li><a href="/server/create">Add Server</a></li>
+              <li><a href="/server/create/">Add Server</a></li>
               <li class="divider-vertical"></li>
             </ul>
 			{% if user.is_authenticated %}              
@@ -58,7 +58,7 @@
             		<a href='#' class='dropdown-toggle' data-toggle="dropdown"><img src="{{user.get_profile.pic.file}}/25/25/" > {{user.get_profile.name}} <b class='caret'></b></a>
             		<ul class="dropdown-menu">
             			<li><a href="/dashboard/">My Dashboard</a></li>
-						<li><a href="/logout/">Logout</a></li>
+						<li><a href="/accounts/logout/">Logout</a></li>
             		</ul>
             	</li>
             </ul>

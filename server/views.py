@@ -9,3 +9,10 @@ def home(request):
 @login_required
 def create(request):
     return render(request, 'server_create.html')
+    
+def view(request, server_id):
+    try:
+        s = server.objects.get(pk=server_id)
+    except DoesNotExist:
+        return 
+    return render(request, 'server_view.html', {'server': s})
