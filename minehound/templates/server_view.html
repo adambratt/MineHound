@@ -5,7 +5,7 @@
 <h4>{{server.address}}</h4>
 <hr>
 <div class="row">
-    <div class="span2">
+    <div class="span4">
         <p>
             <strong>Alltime Unique Players:</strong> {{server.total_players}}<br />
             <strong>Unique Players Today:</strong> {{server.today_players}}<br />
@@ -15,19 +15,21 @@
             <strong>Todays Logins:</strong> {{server.today_sessions}}
         </p>
     </div>
-    <div class="span3">
+    <div class="span8">
+        <div id="hourlyuser_chart"></div>        
+    </div>
+</div>
+<div class="row">
+    <div class="span12">
         <p>
             <strong>Currently online:</strong>
-            <ul style="list-style: inline;">
+            <ul style="list-style: none;">
             {% for p in server.online_players %}
-            <li><img src="http://minotar.net/avatar/{{p.username}}/16"> {{p.username}}</li>
+            <li style="width: 150px; float: left;"><img src="http://minotar.net/avatar/{{p.username}}/16"> {{p.username}}</li>
             {% endfor %}
             </ul>
             </p>
         </p>
-    </div>
-    <div class="span7">
-        <div id="hourlyuser_chart"></div>        
     </div>
 </div>
 {% endblock %}
