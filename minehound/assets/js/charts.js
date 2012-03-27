@@ -10,6 +10,6 @@ function graphHourlyUsers(ele_id, d) {
     data.addRow([(d[x].hour).toString(), d[x].users]);
   }
   
-  new google.visualization.AreaChart(document.getElementById(ele_id)).draw(data, {legend: 'none', title: 'Hourly Users'});
+  new google.visualization.AreaChart(document.getElementById(ele_id)).draw(data, {legend: 'none', title: 'Hourly Users', hAxis: {fontSize: 10}});
     
 }
