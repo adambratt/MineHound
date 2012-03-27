@@ -3,7 +3,7 @@ function graphHourlyUsers(ele_id, data) {
   var users = [];
   
   for(x in data) {
-    hours[x] = data[x].hour
+    hours[x] = (data[x].hour).toString()
     users[x] = data[x].users
   }
   
