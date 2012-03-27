@@ -7,7 +7,7 @@ function graphHourlyUsers(ele_id, d) {
   data.addColumn('number', 'Users');
   
   for(x in d){
-    data.addRow((d[x].hour).toString(), d[x].users);
+    data.addRow([(d[x].hour).toString(), d[x].users]);
   }
   
   new google.visualization.ImageAreaChart(document.getElementById(ele_id)).draw(data, null);
