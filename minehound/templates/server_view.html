@@ -3,7 +3,7 @@
 {% block content %}
 <h2> {{server.name}}</h2>
 <h4>{{server.address}}</h4>
-
+<hr>
 <div class="row">
     <div class="span3">
         <p>
@@ -20,7 +20,7 @@
             <strong>Currently online:</strong>
             <p>
             {% for p in server.online_players %}
-            <img src="http://minotar.net/avatar/{{p.username}}/16"> {{p.username}}<br />
+            <img src="http://minotar.net/avatar/{{p.username}}/16"> {{p.username}}, 
             {% endfor %}
             </p>
         </p>
