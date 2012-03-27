@@ -1,20 +1,17 @@
-function graphHourlyUsers(ele_id, data) {
+function graphHourlyUsers(ele_id, d) {
   var hours = [];
   var users = [];
   
-  for(x in data) {
-    hours[x] = (data[x].hour).toString()
-    users[x] = data[x].users
+  var data = new google.visualization.DataTable();
+  data.addColumn('string', 'Hour');
+  data.addColumn('number', 'Users');
+  data.addRows(d.length);
+  
+  for(x in d){
+    data.setCell(x, 0, (d[x].hour).toString());
+    data.setCell(x, 1, d[x].users);
   }
   
-  console.log(hours)
-  console.log(users)
+  new google.visualization.ImageAreaChart(document.getElementById(ele_id)).draw(data, null);
     
-  var wrapper = new google.visualization.ChartWrapper({
-    chartType: 'ColumnChart',
-    dataTable: [hours, users],
-    options: {'title': 'Hourly Users'},
-    containerId: ele_id
-  });
-  wrapper.draw();
 }
