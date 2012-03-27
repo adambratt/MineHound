@@ -3,8 +3,8 @@ function graphHourlyUsers(ele_id, data) {
   var users = [];
   
   for(x in data) {
-    hours = data[x].hour
-    users = data[x].users
+    hours[x] = data[x].hour
+    users[x] = data[x].users
   }
     
   var wrapper = new google.visualization.ChartWrapper({
