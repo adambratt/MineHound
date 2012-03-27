@@ -20,7 +20,7 @@ class server(models.Model):
     
     def hourly_sessions(self):
         cursor = connection.cursor()
-        cursor.execute("select hour(s.start) as hour, count(distinct(u.username)) as users from server_session s left join server_user u on u.id = s.user_id where s.server_id = %s group by hour(s.start)", [self.pk])
+        cursor.execute("SELECT `hour`, max(`cnt`) AS `max`,AVG(`cnt`) AS `users` FROM `server_hourlystats` where `server_id` = %s ORDER BY `hour`", [self.pk])
         return dictfetchall(cursor)
         
     property(hourly_sessions)
