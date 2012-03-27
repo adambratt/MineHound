@@ -29,6 +29,8 @@ def stats(request, stat, server_id):
     
     if stat == 'hourly_users':
         return json(s.hourly_sessions())
+    elif stat == 'weekly_users':
+        return json(s.weekly_sessions())
     
     return Http404
         

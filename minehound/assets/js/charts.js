@@ -1,4 +1,4 @@
-function graphHourlyUsers(ele_id, d) {
+function graphHourlyUsers(ele_id, d, title="Hourly Users") {
   var hours = [];
   var users = [];
   
@@ -10,6 +10,10 @@ function graphHourlyUsers(ele_id, d) {
     data.addRow([(d[x].hour).toString(), d[x].users]);
   }
   
-  new google.visualization.AreaChart(document.getElementById(ele_id)).draw(data, {legend: 'none', title: 'Hourly Users', hAxis: {fontSize: 8}});
+  new google.visualization.AreaChart(document.getElementById(ele_id)).draw(data, {legend: 'none', title: title, hAxis: {fontSize: 8}});
     
+}
+
+function graphWeekUsers(ele_id, d) {
+    graphHourlyUsers(ele_id, d, "Weekly Users")
 }
