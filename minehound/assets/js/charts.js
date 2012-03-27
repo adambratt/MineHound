@@ -6,6 +6,9 @@ function graphHourlyUsers(ele_id, data) {
     hours[x] = data[x].hour
     users[x] = data[x].users
   }
+  
+  console.log(hours)
+  console.log(users)
     
   var wrapper = new google.visualization.ChartWrapper({
     chartType: 'ColumnChart',
