@@ -29,7 +29,9 @@
         <div id="hourlyuser_chart"></div>        
     </div>
 </div>
+{% endblock %}
 
+{% block javascript %}
 <script type="text/javascript">
 var server = {{server.pk}};
 $(function(){
@@ -39,5 +41,4 @@ $(function(){
    });
 });
 </script>
-
 {% endblock %}
