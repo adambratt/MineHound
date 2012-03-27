@@ -1,8 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.db import connection
 import datetime
-
-
 
 class user(models.Model):
     ''' A Minecraft user '''
@@ -18,6 +17,13 @@ class server(models.Model):
     status = models.IntegerField(max_length=1, default=0)
     slots = models.IntegerField(default=0)
     owner = models.ForeignKey(User)
+    
+    def hourly_sessions(self):
+        cursor = connection.cursor()
+        cursor.execute("select hour(s.start) as hour, count(distinct(u.username)) as users from server_session s left join server_user u on u.id = s.user_id where s.server_id = %s group by hour(s.start)", [self.pk])
+        return dictfetchall(cursor)
+        
+    property(hourly_sessions)
     
     def total_sessions(self):
         return session.objects.filter(server=self).count()
@@ -59,3 +65,11 @@ class session(models.Model):
     start = models.DateTimeField(auto_now_add=True)
     end = models.DateTimeField(auto_now=True, null=True)
     last_update = models.DateTimeField()
+    
+def dictfetchall(cursor):
+    "Returns all rows from a cursor as a dict"
+    desc = cursor.description
+    return [
+        dict(zip([col[0] for col in desc], row))
+        for row in cursor.fetchall()
+    ]

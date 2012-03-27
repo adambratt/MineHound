@@ -12,6 +12,8 @@ urlpatterns = patterns('',
     url(r'^image/(?P<image_id>\w+)/$', 'images.views.load'),
     url(r'^image/(?P<image_id>\w+)/(?P<width>\w+)/(?P<height>\w+)/$', 'images.views.load'),
     
+    url(r'^stats/(?P<stat>\w+)/(?P<server_id>\w+)/$', 'server.views.stats'),
+    
     url(r'^dashboard/$', 'member.views.dashboard'),
     
     url(r'^accounts/', include('registration.backends.default.urls')),

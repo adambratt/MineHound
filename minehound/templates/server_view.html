@@ -4,21 +4,40 @@
 <h2> {{server.name}}</h2>
 <h4>{{server.address}}</h4>
 
-<p>
-    <strong>Alltime Unique Players:</strong> {{server.total_players}}<br />
-    <strong>Unique Players Today:</strong> {{server.today_players}}<br />
-</p>
-<p>
-    <strong>Alltime Logins:</strong> {{server.total_sessions}}<br />
-    <strong>Todays Logins:</strong> {{server.today_sessions}}
-</p>
+<div class="row">
+    <div class="span3">
+        <p>
+            <strong>Alltime Unique Players:</strong> {{server.total_players}}<br />
+            <strong>Unique Players Today:</strong> {{server.today_players}}<br />
+        </p>
+        <p>
+            <strong>Alltime Logins:</strong> {{server.total_sessions}}<br />
+            <strong>Todays Logins:</strong> {{server.today_sessions}}
+        </p>
+    </div>
+    <div class="span3">
+        <p>
+            <strong>Currently online:</strong>
+            <p>
+            {% for p in server.online_players %}
+            <img src="http://minotar.net/avatar/{{p.username}}/16"> {{p.username}}<br />
+            {% endfor %}
+            </p>
+        </p>
+    </div>
+    <div class="span6">
+        <div id="hourlyuser_chart"></div>        
+    </div>
+</div>
 
-<p>
-    <strong>Currently online:</strong>
-    <p>
-    {% for p in server.online_players %}
-    <img src="http://minotar.net/avatar/{{p.username}}/16"> {{p.username}}<br />
-    {% endfor %}
-    </p>
-</p>
+<script type="text/javascript">
+var server = {{server.pk}};
+$(function(){
+   $.get('/stats/hourly_users/'+server+'/', function(data){
+        data = $.parseJSON(data);
+        graphHourlyUsers('hourlyuser_chart', data);
+   });
+});
+</script>
+
 {% endblock %}
