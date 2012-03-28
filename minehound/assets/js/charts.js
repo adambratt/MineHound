@@ -1,4 +1,9 @@
-function graphHourlyUsers(ele_id, d, title="Hourly Users") {
+function graphHourlyUsers(ele_id, d, title) {
+  
+  if(!title.length){
+    title = "Hourly Users";
+  }
+  
   var hours = [];
   var users = [];
   
