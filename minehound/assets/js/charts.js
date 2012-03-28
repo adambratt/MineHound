@@ -1,6 +1,6 @@
 function graphHourlyUsers(ele_id, d, title) {
   
-  if(!title.length){
+  if(!title){
     title = "Hourly Users";
   }
   
