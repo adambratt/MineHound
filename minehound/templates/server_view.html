@@ -24,7 +24,7 @@
 <div class="row">
     <div class="span12">
         <p>
-            <strong>Currently online:</strong>
+            <strong>Currently {{server.online_count}} players online:</strong>
             <ul style="list-style: none;">
             {% for p in server.online_players %}
             <li style="width: 150px; float: left;"><img src="http://minotar.net/avatar/{{p.username}}/16" style="width: 16px; height: 16px;"> {{p.username}}</li>
