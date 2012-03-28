@@ -17,6 +17,7 @@ class server(models.Model):
     status = models.IntegerField(max_length=1, default=0)
     slots = models.IntegerField(default=0)
     owner = models.ForeignKey(User)
+    uptime = models.DecimalField(max_digits=5, decimal_places=2)
     
     def hourly_sessions(self):
         cursor = connection.cursor()
