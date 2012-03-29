@@ -10,14 +10,14 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-TIME_ZONE = 'America/Chicago'
+#TIME_ZONE = 'America/Chicago'
 LANGUAGE_CODE = 'en-us'
 
 SITE_ID = 1
 
 USE_I18N = True
 USE_L10N = True
-USE_TZ = False
+USE_TZ = True
 
 PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
 
