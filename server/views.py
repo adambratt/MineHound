@@ -6,7 +6,7 @@ from django.utils import simplejson
 
 def home(request):
     s = server.objects.filter(status=1)[:30]
-    sortlist = sorted(s, key=lambda a: a.today_sessions())
+    sortlist = sorted(s, key=lambda a: a.today_sessions(), reverse=True)
     return render(request, 'server_list.html', {'servers': sortlist})
 
 @login_required
