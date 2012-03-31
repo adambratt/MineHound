@@ -2,7 +2,7 @@ from django.shortcuts import redirect
 from images.models import Photo
 from django.http import Http404
 
-import settings
+from minehound import settings
 import os
 
 # On Mac environments PIL works differently
