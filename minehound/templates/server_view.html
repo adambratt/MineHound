@@ -14,8 +14,12 @@
         Logins Today
     </div>
     <div class="span3" style="text-align: center;">
-        <h2>{{server.uptime}}</h2>
+        <h2>{{server.uptime}}%</h2>
         All-time Uptime
+    </div>
+    <div class="3" style='text-align: center;'>
+        {% if v.status %}<h2 style='color: green;'>Online</h2>{% else %}<h2 style='color: red;'>Offline</h2>{% endif %}
+        Status
     </div>
 </div>
 <div class="row">
