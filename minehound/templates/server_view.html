@@ -93,7 +93,7 @@ $(function(){
 var _cache = {};
 
 function updateStats(){
-    _cache['onlineplayers'] = int($('#playersOnline').html())
+    _cache['onlineplayers'] = parseInt($('#playersOnline').html())
     $.get('/stats/main/'+server+'/', function(data){
         data = $.parseJSON(data);
         if(_cache['onlineplayers'] != data.onlineplayers){
