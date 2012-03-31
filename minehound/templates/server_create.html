@@ -1,0 +1,27 @@
+{% extends 'dashboard.html' %}
+
+{% block dashboard %}
+
+<h3> Create Server </h3>
+
+<form method='post' action='/server/create/'>
+    <label>Name</label>
+    <input type='text' name='name' value='{{server.name}}' maxlength="50">
+    
+    <label>Address/IP</label>
+    <input type='text' name='address' value='{{server.address}}' placeholder='example.com'>
+    
+    <label>Server Port</label>
+    <input type='text' name='server_port' value='{{server.server_port|default:"25565"}}'>
+    
+    <label>Minequery Port</label>
+    <input type='text' name='query_port' value='{{server.query_port|default:"25566"}}'>
+    
+    <label>Description</label>
+    <textarea name='description' rows='5'>{{server.description}}</textarea>
+    
+    <input type='submit' value='Save Server' class='btn btn-primary'>
+</form>
+
+
+{% endblock %}

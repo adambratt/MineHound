@@ -10,6 +10,7 @@ class user(models.Model):
 class server(models.Model):
     ''' A Minecraft server '''
     name = models.CharField(max_length=50)
+    banner = models.ImageField(upload_to='/banner/', blank=True, null=True)
     address = models.CharField(max_length=100)
     server_port = models.IntegerField(default=25565)
     query_port = models.IntegerField(default=25566)
