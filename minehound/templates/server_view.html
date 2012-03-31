@@ -18,22 +18,12 @@
         All-time Uptime
     </div>
     <div class="3" style='text-align: center;'>
-        {% if v.status %}<h2 style='color: green;'>Online</h2>{% else %}<h2 style='color: red;'>Offline</h2>{% endif %}
+        {% if server.status %}<h2 style='color: green;'>Online</h2>{% else %}<h2 style='color: red;'>Offline</h2>{% endif %}
         Status
     </div>
 </div>
+<hr>
 <div class="row">
-    <div class="span3">
-        <p>
-            <strong>Alltime Unique Players:</strong> {{server.total_players}}<br />
-            <strong>Unique Players Today:</strong> {{server.today_players}}<br />
-        </p>
-        <p>
-            <strong>Alltime Logins:</strong> {{server.total_sessions}}<br />
-            <strong>Todays Logins:</strong> {{server.today_sessions}}<br />
-            <strong>Uptime:</strong> {{server.uptime}}%            
-        </p>
-    </div>
     <div class="span3">
         <h4>New vs Returning Players</h4>
         <div id="visitor_pie"></div>        
