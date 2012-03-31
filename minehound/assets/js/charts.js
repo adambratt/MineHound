@@ -11,7 +11,7 @@ function graphHourlyUsers(ele_id, d) {
     data.addRow([(d[x].hour).toString(), d[x].users]);
   }
   
-  new google.visualization.AreaChart(document.getElementById(ele_id)).draw(data, {legend: 'none', hAxis: {fontSize: '8px'}, colors:['#9aea5a','#333'], areaOpacity: 0.6});
+  new google.visualization.AreaChart(document.getElementById(ele_id)).draw(data, {legend: 'none', hAxis: {fontSize: '8px', maxAlternation: 1}, colors:['#9aea5a','#333'], areaOpacity: 0.6});
     
 }
 
