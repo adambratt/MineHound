@@ -4,7 +4,8 @@
 
 <h3> Create Server </h3>
 
-<form method='post' action='/server/create/'>
+<form method='post' action='/server/create/' enctype="multipart/form-data">
+    {% csrf_token %}
     <label>Name</label>
     <input type='text' name='name' value='{{server.name}}' maxlength="50">
     
@@ -16,7 +17,11 @@
     
     <label>Minequery Port</label>
     <input type='text' name='query_port' value='{{server.query_port|default:"25566"}}'>
-    
+        
+    <label>Server Banner</label>
+    <input type='file' name='banner'>
+    <p class='help-block'>Optimum size is 400x60 in gif, png, or jpg format. Max size is 500KB</p>
+        
     <label>Description</label>
     <textarea name='description' rows='5'>{{server.description}}</textarea>
     
