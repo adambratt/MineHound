@@ -11,7 +11,7 @@ function graphHourlyUsers(ele_id, d) {
     data.addRow([(d[x].hour).toString(), d[x].users]);
   }
   
-  new google.visualization.AreaChart(document.getElementById(ele_id)).draw(data, {legend: 'none', chartArea: {left: 10, top: 10}, pointSize: 5, hAxis: {fontSize: 8, maxAlternation: 1, slantedText: false}, colors:['#9aea5a','#333'], areaOpacity: 0.6});
+  new google.visualization.AreaChart(document.getElementById(ele_id)).draw(data, {legend: 'none', chartArea: {left: 10, top: 10, width: "90%", height: "90%"}, pointSize: 5, hAxis: {fontSize: 8, maxAlternation: 1, slantedText: false}, colors:['#9aea5a','#333'], areaOpacity: 0.6});
     
 }
 
@@ -32,5 +32,5 @@ function graphVisitorPercentage(ele_id, d, title){
     data.addRow(['new', d[0]['new']]);
     data.addRow(['returning', d[0]['returning']]);
     
-    new google.visualization.PieChart(document.getElementById(ele_id)).draw(data, {legend: 'none', chartArea: {left: 10, top: 10}, colors:['#9aea5a','#333']});
+    new google.visualization.PieChart(document.getElementById(ele_id)).draw(data, {legend: 'none', chartArea: {left: 10, top: 10, width: "90%", height: "90%"}, colors:['#9aea5a','#333']});
 }
