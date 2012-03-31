@@ -30,7 +30,7 @@ class server(models.Model):
     
     def daily_visitor_type(self):
         cursor = connection.cursor()
-        cursor.execute("select new_users as `new`, returning_users as `returning`, date(Now()) from server_visitors WHERE `day` = DATE(NOW()) and `server_id` = %s", [self.pk])
+        cursor.execute("select new_users as `new`, returning_users as `returning` from server_visitors WHERE `day` = DATE(NOW()) and `server_id` = %s", [self.pk])
         return dictfetchall(cursor)
     
     def total_sessions(self):
