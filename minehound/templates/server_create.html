@@ -8,6 +8,9 @@
     {% csrf_token %}
     <label>Name</label>
     <input type='text' name='name' value='{{server.name}}' maxlength="50">
+        
+    <label>Description</label>
+    <textarea name='description' rows='5'>{{server.description}}</textarea>
     
     <label>Address/IP</label>
     <input type='text' name='address' value='{{server.address}}' placeholder='example.com'>
@@ -21,9 +24,6 @@
     <label>Server Banner</label>
     <input type='file' name='banner'>
     <p class='help-block'>Optimum size is 400x60 in gif, png, or jpg format. Max size is 500KB</p>
-        
-    <label>Description</label>
-    <textarea name='description' rows='5'>{{server.description}}</textarea>
     
     <input type='submit' value='Save Server' class='btn btn-primary'>
 </form>
