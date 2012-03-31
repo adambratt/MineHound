@@ -5,8 +5,7 @@
 <h4>{{server.address}}</h4>
 <hr>
 <div class="row">
-    <div class="span4">
-        <div id="visitor_pie"></div>
+    <div class="span3">
         <p>
             <strong>Alltime Unique Players:</strong> {{server.total_players}}<br />
             <strong>Unique Players Today:</strong> {{server.today_players}}<br />
@@ -17,7 +16,10 @@
             <strong>Uptime:</strong> {{server.uptime}}%            
         </p>
     </div>
-    <div class="span8">
+    <div class="span3">
+        <div id="visitor_pie"></div>        
+    </div>
+    <div class="span6">
         <div id="hourlyuser_chart"></div>
         <div id="weeklyuser_chart"></div>      
     </div>
