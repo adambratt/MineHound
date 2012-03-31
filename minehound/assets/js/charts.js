@@ -32,5 +32,5 @@ function graphVisitorPercentage(ele_id, d, title){
     data.addRow(['new', d[0]['new']]);
     data.addRow(['returning', d[0]['returning']]);
     
-    new google.visualization.PieChart(document.getElementById(ele_id)).draw(data, {legend: 'none', title: title});
+    new google.visualization.PieChart(document.getElementById(ele_id)).draw(data, {legend: 'none', colors:['#9aea5a','#333']});
 }
