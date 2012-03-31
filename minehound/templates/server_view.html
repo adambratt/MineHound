@@ -5,6 +5,20 @@
 <h4>{{server.address}}</h4>
 <hr>
 <div class="row">
+    <div class="span3" style="text-align: center;">
+        <h2>{{server.today_players}}</h2>
+        Players Today
+    </div>
+    <div class="span3" style="text-align: center;">
+        <h2>{{server.today_sessions}}</h2>
+        Logins Today
+    </div>
+    <div class="span3" style="text-align: center;">
+        <h2>{{server.uptime}}</h2>
+        All-time Uptime
+    </div>
+</div>
+<div class="row">
     <div class="span3">
         <p>
             <strong>Alltime Unique Players:</strong> {{server.total_players}}<br />
@@ -17,9 +31,11 @@
         </p>
     </div>
     <div class="span3">
+        <h4>New vs Returning Players</h4>
         <div id="visitor_pie"></div>        
     </div>
     <div class="span6">
+        <h4>Hourly Players</h4>
         <div id="hourlyuser_chart"></div>
         <div id="weeklyuser_chart"></div>      
     </div>
