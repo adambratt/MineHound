@@ -2,9 +2,19 @@
 
 {% block content %}
 <div class="row">
-    <h2 class="span4">{{server.name}}</h2>
-    <h2 class="span4" style="text-align: center;">{% if server.website %}<a href="http://{{server.website}}">{{server.website}}</a>{% endif %} </h2>
-    <h2 class="span4" style="text-align: right;">{{server.address}}</h2>
+    <div class="span4">
+        <h1>{{server.name}}</h1>
+    </div>
+    <div class="span4" style="text-align: center;">
+        {% if server.website %}
+        <h2><a href="http://{{server.website}}">{{server.website}}</a></h2>
+        <h4>Website</h4>
+        {% endif %}
+    </div>
+    <div class="span4" style="text-align: right;">
+        <h2>{{server.address}}:{{server.server_port}}</h2>
+        <h4>Server IP</h4>
+    </div>
 </div>
 <hr>
 <div class="row">
