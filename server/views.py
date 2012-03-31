@@ -3,6 +3,7 @@ from server.models import server
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, Http404
 from django.utils import simplejson
+from server.forms import ServerForm
 
 def home(request):
     s = server.objects.filter(status=1)[:30]
@@ -11,6 +12,11 @@ def home(request):
 
 @login_required
 def create(request):
+    if request.method == 'POST':
+        form = ServerForm(request.POST, request.FILES)
+        if form.is_valid():
+            
+        
     return render(request, 'server_create.html')
     
 def view(request, server_id):
