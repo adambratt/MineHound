@@ -13,6 +13,7 @@ class server(models.Model):
     banner = models.ImageField(upload_to='/banner/', blank=True, null=True)
     description = models.TextField(blank=True, null=True)
     address = models.CharField(max_length=100)
+    website = models.CharField(max_length=100)
     server_port = models.IntegerField(default=25565)
     query_port = models.IntegerField(default=25566)
     last_checked = models.DateTimeField()
