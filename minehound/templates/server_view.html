@@ -90,11 +90,16 @@ $(function(){
    graphPie('uptime_pie', {'online':{{server.uptime}}, 'offline':{{server.downtime}}})
 });
 
+var _cache = {};
+
 function updateStats(){
+    _cache['onlineplayers'] = int($('#playersOnline').html())
     $.get('/stats/main/'+server+'/', function(data){
         data = $.parseJSON(data);
-        $('#playersOnline').html(data.online_players);
-        $('#playersOnline').effect("highlight", {}, 2000);
+        if(_cache['onlineplayers'] != data.onlineplayers){
+            $('#playersOnline').html(data.onlineplayers);
+            $('#playersOnline').effect("highlight", {color: "#9aea5a"}, 500);   
+        }
         setTimeout(updateStats, 5000);
    });
 }
