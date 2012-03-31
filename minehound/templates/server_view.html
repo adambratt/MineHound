@@ -6,6 +6,7 @@
 <hr>
 <div class="row">
     <div class="span4">
+        <div id="visitor_pie"></div>
         <p>
             <strong>Alltime Unique Players:</strong> {{server.total_players}}<br />
             <strong>Unique Players Today:</strong> {{server.today_players}}<br />
@@ -43,6 +44,10 @@ $(function(){
    $.get('/stats/hourly_users/'+server+'/', function(data){
         data = $.parseJSON(data);
         graphHourlyUsers('hourlyuser_chart', data);
+   });
+   $.get('/stats/visitor_type/'+server+'/', function(data){
+        data = $.parseJSON(data);
+        graphVisitorPercentage('visitor_pie', data);
    });
 });
 </script>

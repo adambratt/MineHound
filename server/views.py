@@ -31,6 +31,8 @@ def stats(request, stat, server_id):
         return json(s.hourly_sessions())
     elif stat == 'weekly_users':
         return json(s.weekly_sessions())
+    elif stat == 'visitor_type':
+        return json(s.daily_visitor_type())
     
     return Http404
         

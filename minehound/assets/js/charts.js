@@ -22,3 +22,20 @@ function graphHourlyUsers(ele_id, d, title) {
 function graphWeekUsers(ele_id, d) {
     graphHourlyUsers(ele_id, d, "Weekly Users")
 }
+
+
+function graphVisitorPercentage(ele_id, d, title){
+    if(!title){
+      title="New vs Returning";
+    }
+    
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'Player Type');
+    data.addColumn('number', 'Players');
+    
+    for(x in d){
+      data.addRow([x, d[x]]);
+    }
+    
+    new google.visualization.PieChart(document.getElementById(ele_id)).draw(data, {legend: 'none', title: title});
+}

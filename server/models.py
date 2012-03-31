@@ -26,6 +26,11 @@ class server(models.Model):
         
     property(hourly_sessions)
     
+    def daily_visitor_type(self):
+        cursor = connection.cursor()
+        cursor.execute("select new_users as `new`, returning_users as `returning`, date(Now()) from server_visitors WHERE `day` = DATE(NOW()) and `server_id` = %s", [self.pk])
+        return dictfetchall(cursor)
+    
     def total_sessions(self):
         return session.objects.filter(server=self).count()
         
