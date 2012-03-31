@@ -39,6 +39,10 @@ def stats(request, stat, server_id):
         return json(s.weekly_sessions())
     elif stat == 'visitor_type':
         return json(s.daily_visitor_type())
+    elif stat == 'main':
+        tmp = {}
+        tmp['onlineplayers'] = s.online_count()
+        return json(tmp)
     
     return Http404
         

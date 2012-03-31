@@ -65,7 +65,6 @@ class server(models.Model):
     def downtime(self):
         return (100-self.uptime)
     
-    property(online_count)
     online_players = property(get_online_players)
     
 

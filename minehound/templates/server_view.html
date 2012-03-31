@@ -24,7 +24,7 @@
         Status
     </div>
     <div class="span3" style="text-align: center;">
-        <h2>{% if server.status %}{{server.online_count}} / {{server.slots}}{% else %}0 / 0{% endif %}</h2>
+        <h2>{% if server.status %}<span id='playersOnline'>{{server.online_count}}</span> / {{server.slots}}{% else %}0 / 0{% endif %}</h2>
         Players Online
     </div>
     <div class="span3" style="text-align: center;">
@@ -86,7 +86,18 @@ $(function(){
         data = $.parseJSON(data);
         graphPie('visitor_pie', data[0]);
    });
+   updateStats();
    graphPie('uptime_pie', {'online':{{server.uptime}}, 'offline':{{server.downtime}}})
 });
+
+function updateStats(){
+    $.get('/stats/main/'+server+'/', function(data){
+        data = $.parseJSON(data);
+        $('#playersOnline').html(data.online_players);
+        $('#playersOnline').effect("highlight", {}, 2000);
+        setTimeout(updateStats, 5000);
+   });
+}
+
 </script>
 {% endblock %}
