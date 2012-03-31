@@ -20,17 +20,15 @@ function graphWeekUsers(ele_id, d) {
 }
 
 
-function graphVisitorPercentage(ele_id, d, title){
-    if(!title){
-      title="New vs Returning";
-    }
+function graphPie(ele_id, d){
     
     var data = new google.visualization.DataTable();
-    data.addColumn('string', 'Player Type');
-    data.addColumn('number', 'Players');
+    data.addColumn('string', 'Title');
+    data.addColumn('number', 'Value');
     
-    data.addRow(['new', d[0]['new']]);
-    data.addRow(['returning', d[0]['returning']]);
+    for(x in d){
+      data.addRow([x, d[x]]);
+    }
     
     new google.visualization.PieChart(document.getElementById(ele_id)).draw(data, {legend: 'none', chartArea: {left: 20, top: 20, width: "90%", height: "80%"}, colors:['#9aea5a','#333']});
 }

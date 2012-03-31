@@ -25,6 +25,8 @@
 <hr>
 <div class="row">
     <div class="span3">
+        <h4>Uptime</h4>
+        <div id="uptime_pie"></div>
         <h4>Server Description</h4>
         <p>
             {{server.description|default:"No description has been entered"}}
@@ -65,8 +67,9 @@ $(function(){
    });
    $.get('/stats/visitor_type/'+server+'/', function(data){
         data = $.parseJSON(data);
-        graphVisitorPercentage('visitor_pie', data);
+        graphPie('visitor_pie', data[0]);
    });
+   graphPie('uptime_pie', {'online':{{server.uptime}}, 'offline':{{server.downtime}}})
 });
 </script>
 {% endblock %}

@@ -60,6 +60,9 @@ class server(models.Model):
     
     def online_count(self):
         return session.objects.filter(end__isnull=True, server=self).count()
+        
+    def downtime(self):
+        return (100-self.uptime)
     
     property(online_count)
     online_players = property(get_online_players)
