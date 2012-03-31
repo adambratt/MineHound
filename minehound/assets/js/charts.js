@@ -33,9 +33,8 @@ function graphVisitorPercentage(ele_id, d, title){
     data.addColumn('string', 'Player Type');
     data.addColumn('number', 'Players');
     
-    for(x in d){
-      data.addRow([x, d[x]]);
-    }
+    data.addRow(['new', d[0]['new']]);
+    data.addRow(['returning', d[0]['returning']]);
     
     new google.visualization.PieChart(document.getElementById(ele_id)).draw(data, {legend: 'none', title: title});
 }
