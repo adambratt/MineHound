@@ -12,6 +12,10 @@
         Status
     </div>
     <div class="span3" style="text-align: center;">
+        <h2>{% if server.status %}{{server.online_count}}/{{server.slots}}{% else %}0/0{% endif %}</h2>
+        Players Online
+    </div>
+    <div class="span3" style="text-align: center;">
         <h2>{{server.today_players}}</h2>
         Players Today
     </div>
@@ -19,16 +23,7 @@
         <h2>{{server.today_sessions}}</h2>
         Logins Today
     </div>
-    <div class="span3" style="text-align: center;">
-        <h2>{{server.uptime}}%</h2>
-        All-time Uptime
-    </div>
 </div>
-<hr>
-<h4>Server Description</h4>
-<p>
-    {{server.description|default:"No description has been entered"}}
-</p>
 <hr>
 <div class="row">
     <div class="span3" style="text-align: center;">
@@ -45,10 +40,17 @@
         <div id="weeklyuser_chart"></div>      
     </div>
 </div>
+<hr>
 <div class="row">
-    <div class="span12">
+    <div class="span6">
+        <h4>Server Description</h4>
         <p>
-            <strong>Currently {{server.online_count}}/{{server.slots}} players online:</strong>
+            {{server.description|default:"No description has been entered"}}
+        </p>
+    </div>
+    <div class="span6">
+        <p>
+            <strong>Currently {{server.online_count}} players online:</strong>
             <ul style="list-style: none;">
             {% for p in server.online_players %}
             <li style="width: 150px; float: left;"><img src="http://minotar.net/avatar/{{p.username}}/16" style="width: 16px; height: 16px;"> {{p.username}}</li>
