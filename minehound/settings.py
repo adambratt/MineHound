@@ -10,7 +10,7 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-#TIME_ZONE = 'America/Chicago'
+TIME_ZONE = 'UTC'
 LANGUAGE_CODE = 'en-us'
 
 SITE_ID = 1
