@@ -24,7 +24,7 @@ class server(models.Model):
     
     def hourly_sessions(self):
         cursor = connection.cursor()
-        cursor.execute("SELECT `day`, `hour`, `cnt` AS `users` FROM `server_hourlystats` where `server_id` = %s ORDER BY `id` desc LIMIT 24", [self.pk])
+        cursor.execute("SELECT DAY(`day`), `hour`, `cnt` AS `users` FROM `server_hourlystats` where `server_id` = %s ORDER BY `id` desc LIMIT 24", [self.pk])
         user_list = dictfetchall(cursor)
         user_list.reverse()
         return user_list
