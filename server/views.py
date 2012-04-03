@@ -27,7 +27,7 @@ def view(request, server_id):
     return render(request, 'server_view.html', {'server': s})
     
 def player(request, player):
-    try:
+    pass
     
     
 def stats(request, stat, server_id):
