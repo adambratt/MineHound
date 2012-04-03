@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from server.models import server
+from server.models import server, session
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, Http404
 from django.utils import simplejson
@@ -8,7 +8,8 @@ from server.forms import ServerForm
 def home(request):
     s = server.objects.filter(status=1)[:30]
     sortlist = sorted(s, key=lambda a: a.today_sessions(), reverse=True)
-    return render(request, 'server_list.html', {'servers': sortlist})
+    count = session.objects.all().count()
+    return render(request, 'server_list.html', {'servers': sortlist, 'count': count})
 
 @login_required
 def create(request):
