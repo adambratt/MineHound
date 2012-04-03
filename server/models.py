@@ -24,7 +24,7 @@ class server(models.Model):
     
     def hourly_sessions(self):
         cursor = connection.cursor()
-        cursor.execute("SELECT DAY(`day`), `hour`, `cnt` AS `users` FROM `server_hourlystats` where `server_id` = %s ORDER BY `id` desc LIMIT 24", [self.pk])
+        cursor.execute("SELECT DAY(`day`) as `day`, `hour`, `cnt` AS `users` FROM `server_hourlystats` where `server_id` = %s ORDER BY `id` desc LIMIT 24", [self.pk])
         user_list = dictfetchall(cursor)
         user_list.reverse()
         return user_list
@@ -33,7 +33,7 @@ class server(models.Model):
     
     def daily_visitor_type(self):
         cursor = connection.cursor()
-        cursor.execute("select new_users as `new`, returning_users as `returning` from server_visitors WHERE `day` = DATE(NOW()) and `server_id` = %s", [self.pk])
+        cursor.execute("select new_users as `new`, returning_users as `returning` from server_visitors WHERE `day` = DATE(NOW() - INTERVAL 2 HOUR) and `server_id` = %s", [self.pk])
         return dictfetchall(cursor)
     
     def total_sessions(self):
