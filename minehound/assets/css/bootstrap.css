@@ -4090,6 +4090,9 @@ form .modal-footer {
 .content {
   background: #ffffff;
   padding: 20px;
+  -webkit-box-shadow: 0px 2px 2px #777777;
+  -moz-box-shadow: 0px 2px 2px #777777;
+  box-shadow: 0px 2px 2px #777777;
 }
 .box-table {
   margin-top: 20px;

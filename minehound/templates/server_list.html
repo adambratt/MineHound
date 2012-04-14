@@ -8,7 +8,7 @@ Tracking {{count}} player sessions
 <table class="table table-striped>
 	<thead>
 		<tr>
-			<th>Rank</th>
+			<th>#</th>
 			<th>Server</th>
 			<th>Players</th>
 			<th>Score</th>
@@ -22,7 +22,11 @@ Tracking {{count}} player sessions
 			<td><a href="/server/view/{{v.id}}">{{v.name}}</a></td>
 			<td>{{v.online_count}}/{{v.slots}}</td>
 			<td>{{v.today_sessions}}</td>
-			<td>{% if v.status %}Online{% else %}Offline{% endif %}</td>
+			<td>
+				<div class="progress {% if v.status %}progress-success{% else %}progress-warning{% endif %}">
+					<div class="bar " style="width: {{v.uptime}}%">{% if v.status %}Online{% else %}Offline{% endif %}</div>
+				</div>
+			</td>
 		</tr>
 		{% endfor %}
 	</tbody>

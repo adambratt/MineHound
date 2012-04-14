@@ -6,7 +6,7 @@ from django.utils import simplejson
 from server.forms import ServerForm
 
 def home(request):
-    s = server.objects.filter(status=1)[:30]
+    s = server.objects.all().order_by('status')[:30]
     sortlist = sorted(s, key=lambda a: a.today_sessions(), reverse=True)
     count = session.objects.all().count()
     return render(request, 'server_list.html', {'servers': sortlist, 'count': count})
